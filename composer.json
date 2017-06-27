@@ -23,6 +23,5 @@
             "src/bootstrap.php"
         ]
     },
-    "bin": ["chord"],
     "minimum-stability": "stable"
 }

@@ -3,3 +3,5 @@ composer.phar
 /tests/logs/
 /tests/tmp/
 /tests/Playground.phpt
+composer.lock
+
