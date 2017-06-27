@@ -1,0 +1,28 @@
+{
+    "name": "combi/eloquent",
+    "description": "eloquent support for combi",
+    "keywords": ["framework", "eloquent", "db", "mysql"],
+    "license": "MPL2.0",
+    "authors": [
+        {
+            "name": "Andares Merigold",
+            "email": "andares@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/database": "^5.5",
+        "combi/core": "^0.1"
+    },
+    "require-dev": {
+        "nette/tester": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {"Combi\\": "src/classes/"},
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "bin": ["chord"],
+    "minimum-stability": "stable"
+}
