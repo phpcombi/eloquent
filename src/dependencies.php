@@ -1,5 +1,4 @@
 <?php
-
 namespace Combi\Eloquent;
 
 use Combi\{
@@ -8,5 +7,4 @@ use Combi\{
     Core as core
 };
 
-core::register(Package::instance(__DIR__),
-    'dependencies', 'helpers');
+Package::instance()->initManager();

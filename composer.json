@@ -11,14 +11,14 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "illuminate/database": "^5.4",
+        "illuminate/database": "^5.5",
         "combi/core": "dev-master"
     },
     "require-dev": {
         "nette/tester": "dev-master"
     },
     "autoload": {
-        "psr-4": {"Combi\\Eloquent\\": "src/classes/"},
+        "psr-4": {"Combi\\": "src/classes/"},
         "files": [
             "src/bootstrap.php"
         ]
