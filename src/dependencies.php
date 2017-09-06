@@ -7,4 +7,6 @@ use Combi\{
     Core as core
 };
 
-Package::instance()->initManager();
+use Combi\Eloquent as inner;
+
+inner::initManager();

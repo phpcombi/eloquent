@@ -10,7 +10,7 @@ use Combi\{
 
 class Eloquent
 {
-    use Core\Traits\StaticAgent;
+    use core\Traits\StaticAgent;
 
     public static function instance(): Eloquent\Package {
         return Eloquent\Package::instance();

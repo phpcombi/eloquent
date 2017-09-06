@@ -39,4 +39,12 @@ class Package extends \Combi\Package
     public function manager(): Capsule {
         return $this->capsule;
     }
+
+    public function cabin($id = 0): Cabin {
+        return Cabin::instance($id);
+    }
+
+    public function __call(string $name, array $arguments) {
+        return $this->capsule->$name(...$arguments);
+    }
 }

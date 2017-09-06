@@ -1,0 +1,3 @@
+cabin:
+    auto_release:
+        -   0   # release default cabin when action done

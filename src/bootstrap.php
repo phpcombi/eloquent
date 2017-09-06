@@ -9,4 +9,4 @@ use Combi\{
 };
 
 core::register(Package::instance(__DIR__),
-    'dependencies', 'helpers');
+    'dependencies', 'helpers', 'hooks');
