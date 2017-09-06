@@ -129,7 +129,7 @@ for ($i = 0; $i < 1000; $i++) {
 // it will load once by db.
 ```
 
-If you do not want to use cabin, make entity proporty ```$_cabin_id=null```.
+If you do not want to use cabin, make entity proporty ```protected $_cabin_id=null```.
 
 If want disable auto release feature, make config file ```src/config/eloquent/settings.neon``` like:
 
