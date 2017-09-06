@@ -19,7 +19,8 @@ class Cabin implements \IteratorAggregate
     protected $index    = [];
 
     public function put(Entity $entry, bool $force = false): Entity {
-        $index_name = $this->makeIndexName($entry);
+        $index_name = $this->makeIndexName($entry->getConnectionName(),
+            $entry->getTable(), $entry->getId());
         if ($this->has($index_name)) {
             if ($force) {
                 unset($this->data[$this->index[$index_name]]);
@@ -36,7 +37,8 @@ class Cabin implements \IteratorAggregate
     }
 
     public function remove(Entity $entry) {
-        $index_name = $this->makeIndexName($entry);
+        $index_name = $this->makeIndexName($entry->getConnectionName(),
+            $entry->getTable(), $entry->getId());
         if ($this->has($index_name)) {
             unset($this->data[$this->index[$index_name]]);
             unset($this->index[$index_name]);
@@ -59,11 +61,20 @@ class Cabin implements \IteratorAggregate
         }
     }
 
-    private function has(string $index_name): bool {
+    public function get(string $index_name): Entity {
+        return $this->data[$this->index[$index_name]];
+    }
+
+    public function has(string $index_name): bool {
         return isset($this->index[$index_name]);
     }
 
-    private function makeIndexName(Entity $entry): string {
-        return $entry->getConnectionName().'-'.$entry->getTable().'-'.$entry->getId();
+    public function makeIndexName(string $connection_name,
+        string $table, $id): string
+    {
+        if (!$id && $id !== 0) {
+            throw new \UnexpectedValueException("Entry id is need when make cabin index name.");
+        }
+        return "$connection_name-$table-$id";
     }
 }
