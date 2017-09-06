@@ -16,4 +16,9 @@ core::hook()->attach(\Combi\HOOK_ACTION_END, function() {
             $entry->save();
         }
     }
+
+    // clear all cabin when action done.
+    foreach (Cabin::instances() as $cabin) {
+        $cabin->clear();
+    }
 });
