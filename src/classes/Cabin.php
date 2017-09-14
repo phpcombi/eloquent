@@ -5,12 +5,13 @@ namespace Combi\Eloquent;
 use Combi\{
     Helper as helper,
     Abort as abort,
-    Core as core
+    Core,
+    Runtime as rt
 };
 
 class Cabin implements \IteratorAggregate
 {
-    use core\Traits\Instancable;
+    use Core\Traits\Instancable;
 
     protected $cache_limit      = 10000;
 

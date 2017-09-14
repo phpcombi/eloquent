@@ -4,9 +4,7 @@ namespace Combi\Eloquent;
 use Combi\{
     Helper as helper,
     Abort as abort,
-    Core as core
+    Runtime as rt
 };
 
-use Combi\Eloquent as inner;
-
-inner::initManager();
+rt::eloquent()->initManager();

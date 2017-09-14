@@ -5,7 +5,8 @@ namespace Combi\Eloquent;
 use Combi\{
     Helper as helper,
     Abort as abort,
-    Core as core
+    Core,
+    Runtime as rt
 };
 
 use Illuminate\Database\Eloquent\{
@@ -13,13 +14,11 @@ use Illuminate\Database\Eloquent\{
     Model
 };
 
-use Combi\Eloquent as inner;
-
 /**
  *
  * @author andares
  */
-abstract class Entity extends Model implements core\Interfaces\Confirmable {
+abstract class Entity extends Model implements Core\Interfaces\Confirmable {
     protected $dateFormat = 'Y-m-d H:i:s';
     protected $connection = 'default';
     protected $primaryKey = 'id';
@@ -109,7 +108,7 @@ abstract class Entity extends Model implements core\Interfaces\Confirmable {
     }
 
     public function cabin(): ?Cabin {
-        return $this->_cabin_id === null ? null : inner::cabin($this->_cabin_id);
+        return $this->_cabin_id === null ? null : rt::eloquent()->cabin($this->_cabin_id);
     }
 
     public function confirm() {

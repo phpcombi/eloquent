@@ -3,7 +3,7 @@
 use Combi\{
     Helper as helper,
     Abort as abort,
-    Core as core
+    Runtime as rt
 };
 
 // set temp dir & init nette tester
@@ -12,4 +12,4 @@ require __DIR__.'/init_tester.php';
 // init combi
 const TESTING = true;
 
-core::up('eloquent', require __DIR__.'/env.php');
+rt::up('eloquent', require __DIR__.'/env.php');

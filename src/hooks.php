@@ -4,15 +4,13 @@ namespace Combi\Eloquent;
 use Combi\{
     Helper as helper,
     Abort as abort,
-    Core as core
+    Runtime as rt
 };
 
-use Combi\Eloquent as inner;
-
-core::hook()->attach(\Combi\HOOK_ACTION_END, function() {
-    $cabins = inner::config('settings')->cabin['auto_release'] ?? [];
+rt::core()->hook()->attach(\Combi\HOOK_ACTION_END, function() {
+    $cabins = rt::eloquent()->config('settings')->cabin['auto_release'] ?? [];
     foreach ($cabins as $id) {
-        foreach (inner::cabin($id) as $entry) {
+        foreach (rt::eloquent()->cabin($id) as $entry) {
             $entry->save();
         }
     }
